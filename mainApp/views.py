@@ -11,7 +11,6 @@ def contact(request):
 
 def deleteb(request,id):
     dobj=Employee.objects.get(id=id)
-    print("dobj------------------",dobj)
     if dobj:
         dobj.delete()
         return redirect("/contact/")

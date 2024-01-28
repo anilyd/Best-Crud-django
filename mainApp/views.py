@@ -26,6 +26,7 @@ def updatef(request,id):
 def addf(request):
     data=Employee()
     if request.method=="POST":
+        #data.name=request.POST.["name"] ## bcz it's actually a dictionay
         data.name=request.POST.get("name")
         data.phone=request.POST.get("phone")
         data.save()

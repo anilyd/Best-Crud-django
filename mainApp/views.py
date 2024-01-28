@@ -1,11 +1,16 @@
 from django.shortcuts import render,redirect
 from .models import Employee
+
+from django.db.models import Q
 # Create your views here.
 def home(request):
     return render(request,"index.html")
 def contact(request):
-
-    eobj=Employee.objects.all()
+    if request.method=="POST":
+        search=request.POST.get("search")
+        eobj=Employee.objects.filter(Q(name__icontains=search) | Q(phone__icontains=search))
+    else:
+      eobj=Employee.objects.all()
     # detail={"name":"anil","Designation":"python developer"}
     return render(request,"contact.html",{"data":eobj})
 

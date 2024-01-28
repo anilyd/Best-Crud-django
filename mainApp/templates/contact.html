@@ -8,6 +8,13 @@
 <body>
     <h1>Welcome to contact</h1>
     <a href="/add/">Add</a>
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="search">
+        <button type="submit">Search</button>
+    </form>
+
     <table border="2px">    
         <tr>
             <th>name</th>
